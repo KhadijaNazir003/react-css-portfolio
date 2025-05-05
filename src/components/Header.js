@@ -7,21 +7,20 @@ import {
   MenuItem,
   Avatar,
   Box,
+  Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-
+import { usePageTitle } from "../context/PageTitleContext";
 export default function Header({ onNavToggle }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleMenu = (e) => setAnchorEl(e.currentTarget);
   const handleClose = () => setAnchorEl(null);
+  const pageTitle = usePageTitle();
 
   return (
     <AppBar position="fixed" className="navbar">
-      {" "}
-      {/* retains .navbar */}
       <Toolbar className="d-flex justify-content-between">
-        {" "}
         <IconButton
           edge="start"
           color="inherit"
@@ -46,6 +45,7 @@ export default function Header({ onNavToggle }) {
             <MenuItem onClick={handleClose}>Logout</MenuItem>
           </Menu>
         </Box>
+        <Typography variant="h6">{pageTitle}</Typography>
       </Toolbar>
     </AppBar>
   );

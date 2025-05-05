@@ -7,6 +7,7 @@ import Projects from "./pages/Projects";
 import Education from "./pages/Education";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import { PageTitleProvider } from "./context/PageTitleContext";
 export default function App() {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -15,19 +16,21 @@ export default function App() {
 
   return (
     <div className="app-container">
-      <Header onNavToggle={toggleDrawer} />
-      <SideNav open={drawerOpen} onClose={closeDrawer} />
-      <main className="right">
-        <Suspense fallback={null}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/education" element={<Education />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </Suspense>
-      </main>
-      <Footer />
+      <PageTitleProvider>
+        <Header onNavToggle={toggleDrawer} />
+        <SideNav open={drawerOpen} onClose={closeDrawer} />
+        <main className="right">
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/education" element={<Education />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </Suspense>
+        </main>
+        <Footer />
+      </PageTitleProvider>
     </div>
   );
 }
