@@ -1,53 +1,73 @@
 // src/pages/Contact.js
 import React from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const schema = yup
+  .object({
+    name: yup.string().required("Name is required"),
+    email: yup
+      .string()
+      .email("Must be valid email")
+      .required("Email is required"),
+  })
+  .required();
 
 export default function Contact() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitSuccessful },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = (data) => {
+    // For college project: just log or alert
+    console.log(data);
+    alert("Thank you, " + data.name + "!");
+  };
+
   return (
     <div className="right">
-      <div
-        className="section-heading"
-        id="contact-form"
-        style={{ marginLeft: "-5px" }}
-      >
+      <div className="section-heading" id="contact-form">
         Contact Form
       </div>
-      <form className="row g-3" style={{ display: "grid", gap: "1rem" }}>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="col-md-6">
           <label htmlFor="name" className="form-label">
             Name
           </label>
-          <input type="text" className="form-control" id="name" required />
+          <input id="name" className="form-control" {...register("name")} />
+          {errors.name && (
+            <div className="invalid-feedback d-block">
+              {errors.name.message}
+            </div>
+          )}
         </div>
         <div className="col-md-6">
           <label htmlFor="email" className="form-label">
             Email
           </label>
-          <input type="email" className="form-control" id="email" required />
+          <input id="email" className="form-control" {...register("email")} />
+          {errors.email && (
+            <div className="invalid-feedback d-block">
+              {errors.email.message}
+            </div>
+          )}
         </div>
         <div className="col-12">
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
-          <div className="invalid-feedback">Please fill out this field.</div>
+          {isSubmitSuccessful && (
+            <div className="valid-feedback d-block">
+              Submitted successfully!
+            </div>
+          )}
         </div>
       </form>
-
-      <div
-        className="section-heading"
-        style={{ marginTop: "20px" }}
-        id="profile"
-      ></div>
-      <p id="profiletxt"></p>
-
-      <div
-        className="section-heading"
-        style={{ marginTop: "20px" }}
-        id="skills"
-      ></div>
-      <div className="container" id="skill_inject"></div>
-
-      <div className="section-heading" id="reference"></div>
-      <div id="reference-inject"></div>
     </div>
   );
 }
