@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Education from "./pages/Education";
 import Contact from "./pages/Contact";
-
+import Footer from "./components/Footer";
 export default function App() {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -27,6 +27,7 @@ export default function App() {
           </Routes>
         </Suspense>
       </main>
+      <Footer />
     </div>
   );
 }

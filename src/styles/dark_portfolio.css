@@ -163,3 +163,13 @@ body {
     display: none;
   }
 }
+
+.footer {
+  background-color: #ea6b6b;
+  color: #fff;
+}
+@media (max-width: 800px) {
+  .footer {
+    position: static;
+  }
+}
