@@ -3,13 +3,14 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { Box, TextField, Button, Typography } from "@mui/material";
 
 const schema = yup
   .object({
     name: yup.string().required("Name is required"),
     email: yup
       .string()
-      .email("Must be valid email")
+      .email("Must be a valid email")
       .required("Email is required"),
   })
   .required();
@@ -19,55 +20,47 @@ export default function Contact() {
     register,
     handleSubmit,
     formState: { errors, isSubmitSuccessful },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
+  } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = (data) => {
-    // For college project: just log or alert
     console.log(data);
-    alert("Thank you, " + data.name + "!");
+    alert(`Thank you, ${data.name}!`);
   };
 
   return (
-    <div className="right">
-      <div className="section-heading" id="contact-form">
+    <Box className="right" component="section" sx={{ p: 2 }}>
+      <Typography variant="h4" className="section-heading" id="contact-form">
         Contact Form
-      </div>
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <div className="col-md-6">
-          <label htmlFor="name" className="form-label">
-            Name
-          </label>
-          <input id="name" className="form-control" {...register("name")} />
-          {errors.name && (
-            <div className="invalid-feedback d-block">
-              {errors.name.message}
-            </div>
-          )}
-        </div>
-        <div className="col-md-6">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
-          <input id="email" className="form-control" {...register("email")} />
-          {errors.email && (
-            <div className="invalid-feedback d-block">
-              {errors.email.message}
-            </div>
-          )}
-        </div>
-        <div className="col-12">
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-          {isSubmitSuccessful && (
-            <div className="valid-feedback d-block">
-              Submitted successfully!
-            </div>
-          )}
-        </div>
-      </form>
-    </div>
+      </Typography>
+      <Box
+        component="form"
+        onSubmit={handleSubmit(onSubmit)}
+        noValidate
+        sx={{ display: "grid", gap: 2, maxWidth: 400, mx: "auto" }}
+      >
+        <TextField
+          label="Name"
+          {...register("name")}
+          error={!!errors.name}
+          helperText={errors.name?.message}
+          fullWidth
+        />
+        <TextField
+          label="Email"
+          {...register("email")}
+          error={!!errors.email}
+          helperText={errors.email?.message}
+          fullWidth
+        />
+        <Button type="submit" variant="contained">
+          Submit
+        </Button>
+        {isSubmitSuccessful && (
+          <Typography variant="subtitle1" color="success.main">
+            Submitted successfully!
+          </Typography>
+        )}
+      </Box>
+    </Box>
   );
 }
