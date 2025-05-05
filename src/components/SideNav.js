@@ -6,6 +6,8 @@ import {
   ListItemButton,
   ListItemText,
   IconButton,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { Link } from "react-router-dom";
@@ -17,25 +19,29 @@ export default function SideNav({ open, onClose }) {
     { text: "Education", to: "/education" },
     { text: "Contact", to: "/contact" },
   ];
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Drawer
-      variant="temporary"
+      variant={isMobile ? "temporary" : "persistent"}
       open={open}
       onClose={onClose}
       className="left-side"
       classes={{ paper: "left-side" }}
     >
-      <IconButton onClick={onClose} className="close-btn">
-        <ChevronLeftIcon />
-      </IconButton>
+      {!isMobile && (
+        <IconButton onClick={onClose} className="close-btn">
+          <ChevronLeftIcon />
+        </IconButton>
+      )}
       <List className="nav-list">
         {navItems.map((item) => (
           <ListItemButton
             key={item.text}
             component={Link}
             to={item.to}
-            onClick={onClose}
+            onClick={isMobile ? onClose : undefined}
             className="nav-item"
           >
             <ListItemText primary={item.text} />

@@ -2,12 +2,13 @@ import React, { useState, Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import SideNav from "./components/SideNav";
-import Home from "./pages/Home";
-import Projects from "./pages/Projects";
-import Education from "./pages/Education";
-import Contact from "./pages/Contact";
+
 import Footer from "./components/Footer";
 import { PageTitleProvider } from "./context/PageTitleContext";
+const Home = lazy(() => import("./pages/Home"));
+const Projects = lazy(() => import("./pages/Projects"));
+const Education = lazy(() => import("./pages/Education"));
+const Contact = lazy(() => import("./pages/Contact"));
 export default function App() {
   const [drawerOpen, setDrawerOpen] = useState(false);
 

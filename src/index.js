@@ -11,15 +11,19 @@ import "./styles/dark_right_side.css";
 
 import App from "./App";
 import theme from "./theme/theme";
+import { ColorModeProvider } from "./context/ColorModeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <CssBaseline /> {/* Normalize + dark/light toggle */}
+      {/* <ThemeProvider theme={theme}>
+        <CssBaseline />
         <App />
-      </ThemeProvider>
+      </ThemeProvider> */}
+      <ColorModeProvider>
+        <App />
+      </ColorModeProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
