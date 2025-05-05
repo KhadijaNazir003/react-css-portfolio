@@ -1,0 +1,85 @@
+.right {
+  margin-top: 50px;
+  width: 70%;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.right .section-heading {
+  color: #333baa;
+  border-color: #333baa;
+  margin: 20px 40px;
+}
+.heading {
+  background-color: #ffffff09;
+  width: 90%;
+  margin: 20px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+}
+.name {
+  font-size: 2em;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #ffffff;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ffffff;
+}
+.qualification {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #868686;
+  font-size: 1em;
+}
+
+.project-card {
+  background-color: #101010;
+  width: 90%;
+  padding: 10px;
+  color: #d7d7d7;
+  margin: 20px 40px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+.p_head {
+  display: flex;
+  width: 100%;
+  font-size: 12px;
+  justify-content: space-between;
+}
+.p_name {
+  font-size: 25px;
+  margin-top: 0;
+}
+
+.edu-card {
+  background-color: #101010;
+  width: 90%;
+  padding: 10px;
+  margin: 20px 40px;
+  color: #d7d7d7;
+  font-size: 12px;
+  border-radius: 5px;
+}
+.e_head {
+  display: flex;
+  width: 100%;
+  font-size: 12px;
+  justify-content: space-between;
+}
+.e_name {
+  font-size: 25px;
+  margin: 0;
+}
+.institute {
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 800;
+  margin: 5px 0;
+  margin-bottom: 10px;
+}
