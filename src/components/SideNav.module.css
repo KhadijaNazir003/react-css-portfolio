@@ -1,0 +1,13 @@
+.drawer {
+  width: 240px;
+}
+.closeBtn {
+  /* from dark_left_side.css */
+}
+.navList {
+  list-style: none;
+  padding: 0;
+}
+.navItem {
+  /* from left_side.css .contact-info-item and .nav-item */
+}

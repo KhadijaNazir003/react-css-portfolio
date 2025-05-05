@@ -20,7 +20,7 @@ export default function App() {
       <PageTitleProvider>
         <Header onNavToggle={toggleDrawer} />
         <SideNav open={drawerOpen} onClose={closeDrawer} />
-        <main className="right">
+        <main style={{ marginTop: "30px" }}>
           <Suspense fallback={null}>
             <Routes>
               <Route path="/" element={<Home />} />

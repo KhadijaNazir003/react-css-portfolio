@@ -9,6 +9,7 @@ import {
   Box,
   Typography,
   useTheme,
+  Grid,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { usePageTitle } from "../context/PageTitleContext";
@@ -24,10 +25,10 @@ export default function Header({ onNavToggle }) {
 
   return (
     <AppBar position="fixed" className="navbar">
-      <Toolbar className="d-flex justify-content-between">
-        <IconButton onClick={handleMenu} size="small" sx={{ ml: 2 }}>
-          <Avatar alt="Profile" src="/profilepic.jfif" />
-        </IconButton>
+      <Toolbar
+        className="d-flex justify-content-between"
+        style={{ width: "100%" }}
+      >
         <IconButton
           edge="start"
           color="inherit"
@@ -43,7 +44,21 @@ export default function Header({ onNavToggle }) {
           checked={theme.palette.mode === "dark"}
           onChange={colorMode.toggleColorMode}
         />
-        <Box className="right d-flex align-items-center">
+        <Grid
+          container
+          justifyContent="center"
+          alignItems="center"
+          style={{ width: "100%" }}
+        >
+          <Typography variant="h6">{pageTitle}</Typography>
+        </Grid>
+        {/* <Box className="right d-flex align-items-center">
+        </Box> */}
+        <Grid container justifyContent="space-between">
+          <Box className="logo" />
+          <IconButton onClick={handleMenu} size="small" sx={{ ml: 2 }}>
+            <Avatar alt="Profile" src="/profilepic.jfif" />
+          </IconButton>
           <Menu
             anchorEl={anchorEl}
             open={open}
@@ -53,9 +68,7 @@ export default function Header({ onNavToggle }) {
           >
             <MenuItem onClick={handleClose}>Logout</MenuItem>
           </Menu>
-        </Box>
-        <Box className="logo" />
-        <Typography variant="h6">{pageTitle}</Typography>
+        </Grid>
       </Toolbar>
     </AppBar>
   );
