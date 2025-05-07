@@ -85,7 +85,7 @@ export default function Home() {
   ];
 
   return (
-    <Grid container item xs={12} wrap="nowrap">
+    <Grid container item xs={12} wrap="nowrap" className="left-right-container">
       <Grid item xs={4} md={6}>
         <div className="left d-flex flex-column justify-content-center">
           <div className="profilePic" id="about" title="picture">
