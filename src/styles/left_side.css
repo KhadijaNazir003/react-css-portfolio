@@ -4,9 +4,9 @@
   min-width: fit-content;
   height: 100%;
   padding-bottom: 100%;
-
   background-color: #d28e8e;
 }
+
 .left .heading {
   display: none;
 }
@@ -27,8 +27,6 @@
   font-size: 1em;
 }
 
-
-
 #profiletxt {
   max-width: 30vw;
   margin: 15px;
@@ -43,9 +41,14 @@
   margin: 40px auto;
   border-radius: 50%;
   transition: transform 0.3s ease;
+  padding-top: 30px;
 }
 .profilePic:hover {
   transform: scale(1.1);
+}
+
+img {
+  border-radius: 50%;
 }
 
 .info {

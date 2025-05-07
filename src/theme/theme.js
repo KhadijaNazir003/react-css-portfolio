@@ -4,7 +4,7 @@ const theme = createTheme({
   palette: {
     primary: { main: "#1F9CDA" },
     secondary: { main: "#EA6B6B" },
-    mode: "light", // start light; we’ll add toggle later
+    mode: "light", 
   },
   typography: {
     fontFamily: "Roboto, sans-serif",

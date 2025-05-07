@@ -92,7 +92,6 @@ export default function Home() {
             <img
               src="/profilepic.jfif"
               alt="profile"
-              style={{ borderRadius: "50%" }}
             />
           </div>
           <div className="heading">

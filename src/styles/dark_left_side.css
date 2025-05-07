@@ -1,4 +1,4 @@
-.left {
+ .left {
   margin-top: 50px;
   width: 30%;
   min-width: fit-content;
@@ -6,18 +6,20 @@
   padding-bottom: 100%;
   display: flex;
   flex-direction: column;
-
   background-color: #141855;
 }
+
 .left .heading {
   display: none;
 }
+
 #profiletxt {
   max-width: 30vw;
   margin: 15px;
   color: white;
   font-size: 12px;
 }
+
 .profilePic {
   height: 250px;
   min-height: 250px;
@@ -26,6 +28,10 @@
   margin: 40px auto;
   border-radius: 50%;
   transition: transform 0.3s ease;
+}
+
+img {
+  border-radius: 50%;
 }
 
 .profilePic:hover{
