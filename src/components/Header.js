@@ -34,7 +34,6 @@ export default function Header({ onNavToggle }) {
           color="inherit"
           aria-label="menu"
           onClick={onNavToggle}
-          // className="navigation-ops"
         >
           <MenuIcon />
         </IconButton>

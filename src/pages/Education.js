@@ -1,4 +1,3 @@
-// src/pages/Education.js
 import React from "react";
 import {
   TableContainer,

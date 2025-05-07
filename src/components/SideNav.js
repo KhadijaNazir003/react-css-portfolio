@@ -1,4 +1,3 @@
-// src/components/SideNav.js
 import React from "react";
 import {
   Drawer,

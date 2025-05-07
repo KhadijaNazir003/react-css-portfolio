@@ -1,4 +1,3 @@
-// src/context/ColorModeContext.js
 import React, { createContext, useState, useMemo, useContext } from "react";
 import {
   ThemeProvider,
