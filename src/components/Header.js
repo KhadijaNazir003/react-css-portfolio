@@ -1,4 +1,5 @@
 import React from "react";
+import "./Header.css";
 import {
   AppBar,
   Toolbar,
@@ -26,8 +27,7 @@ export default function Header({ onNavToggle }) {
   return (
     <AppBar position="fixed" className="navbar">
       <Toolbar
-        className="d-flex justify-content-between"
-        style={{ width: "100%" }}
+        className="d-flex justify-content-between width_100"
       >
         <IconButton
           edge="start"
@@ -48,7 +48,7 @@ export default function Header({ onNavToggle }) {
           container
           justifyContent="center"
           alignItems="center"
-          style={{ width: "100%" }}
+          className="width_100"       
         >
           <Typography variant="h6">{pageTitle}</Typography>
         </Grid>

@@ -4,7 +4,7 @@
   align-items: center;
   padding: 20px;
   position: fixed;
-  background-color: var(--primary);
+  background-color: var(--primary) !important;
   width: 100%;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.24);
   z-index: 2;
@@ -26,4 +26,8 @@
 }
 .themeCheckbox {
   all: unset; /* rest of .theme-checkbox rules */
+}
+
+.width_100 {
+  width: 100% !important;
 }
