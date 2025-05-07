@@ -22,7 +22,7 @@
   justify-content: center;
   align-items: center;
 }
-.name {
+.right .name {
   font-size: 2em;
   letter-spacing: 2px;
   font-weight: bold;

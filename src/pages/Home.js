@@ -98,11 +98,6 @@ export default function Home() {
           <div className="heading">
             <div
               className="name"
-              style={{
-                textWrap: "nowrap",
-                color: "white",
-                borderColor: "white",
-              }}
             >
               Khadija Nazir
             </div>
@@ -198,7 +193,7 @@ export default function Home() {
           Projects
         </div>
         {projects.map((p) => (
-          <AwardCard key={p.title} title={p.title} date={p.date} l>
+          <AwardCard className="project-card" key={p.title} title={p.title} date={p.date} l>
             {p.desc}
           </AwardCard>
         ))}

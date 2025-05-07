@@ -10,6 +10,25 @@
 .left .heading {
   display: none;
 }
+
+.left .name{
+  font-size: 2em;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: white;
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+}
+
+.left .qualification {
+  margin-top: 10px;
+  font-weight: bold;
+  color: white;
+  font-size: 1em;
+}
+
+
+
 #profiletxt {
   max-width: 30vw;
   margin: 15px;
