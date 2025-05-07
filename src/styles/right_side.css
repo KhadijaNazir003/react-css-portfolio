@@ -47,6 +47,15 @@
   color: #686868;
   border-radius: 5px;
 }
+
+.project-card:hover {
+  background-color: #d28e8e;
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+.project-card:hover .p_head {
+  color: #ffffff;
+}
 .p_head {
   display: flex;
   width: 100%;

@@ -26,7 +26,7 @@
   font-size: 2em;
   letter-spacing: 2px;
   font-weight: bold;
-  color: #ffffff;
+  color: #d28e8e;
   padding-bottom: 10px;
   border-bottom: 2px solid #ffffff;
 }
@@ -45,6 +45,15 @@
   margin: 20px 40px;
   font-size: 12px;
   border-radius: 5px;
+}
+
+.project-card:hover {
+  background-color: #d28e8e;
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+.project-card:hover .p_head {
+  color: #ffffff;
 }
 .p_head {
   display: flex;
