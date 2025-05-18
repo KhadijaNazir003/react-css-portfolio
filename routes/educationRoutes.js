@@ -6,7 +6,7 @@ const {
   createEducation,
   updateEducation,
   deleteEducation,
-} = require('../controllers/educationController');
+} = require('../controllers/educationcontroller');
 
 router.get('/', getAllEducation);
 router.get('/:id', getEducationById);
