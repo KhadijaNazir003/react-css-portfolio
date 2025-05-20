@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import {
   TableContainer,
   Table,
@@ -11,20 +12,14 @@ import {
 } from "@mui/material";
 
 export default function Education() {
-  const rows = [
-    {
-      degree: "Bachelor of Science in Artificial Intelligence",
-      institute: "ITU Punjab",
-      location: "Lahore",
-      year: "2027",
-    },
-    {
-      degree: "Master of Science in Computer Science",
-      institute: "Future University",
-      location: "Lahore",
-      year: "2029",
-    },
-  ];
+  const [rows, setRows] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/api/education`)
+      .then((res) => setRows(res.data))
+      .catch((err) => console.error("Error fetching education data:", err));
+  }, []);
 
   return (
     <div className="right">
@@ -43,7 +38,7 @@ export default function Education() {
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <TableRow key={row.degree}>
+              <TableRow key={row._id || row.degree}>
                 <TableCell>{row.degree}</TableCell>
                 <TableCell>{row.institute}</TableCell>
                 <TableCell>{row.location}</TableCell>
