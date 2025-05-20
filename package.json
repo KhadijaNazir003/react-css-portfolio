@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "khadija-portfolio",
   "version": "0.1.0",
   "private": true,
@@ -44,5 +45,26 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+=======
+  "name": "portfolio-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.15.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+>>>>>>> portfolio-backend-branch
   }
 }
