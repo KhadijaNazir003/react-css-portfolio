@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Drawer,
   List,
@@ -9,7 +9,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function SideNav({ open, onClose }) {
   const navItems = [
@@ -18,16 +18,26 @@ export default function SideNav({ open, onClose }) {
     { text: "Education", to: "/education" },
     { text: "Contact", to: "/contact" },
   ];
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const location = useLocation();
+
+  // Close the drawer when the route changes (e.g., clicking a link)
+  useEffect(() => {
+    if (isMobile && open) {
+      onClose();
+    }
+  }, [location.pathname]);
 
   return (
     <Drawer
-      variant={isMobile ? "temporary" : "persistent"}
+      variant={"temporary"}
       open={open}
-      onClose={onClose}
+      onClose={onClose} // ⬅️ This is all you need for backdrop click to work
       className="left-side"
       classes={{ paper: "left-side" }}
+      ModalProps={{ keepMounted: true }}
     >
       {!isMobile && (
         <IconButton onClick={onClose} className="close-btn">
@@ -40,7 +50,7 @@ export default function SideNav({ open, onClose }) {
             key={item.text}
             component={Link}
             to={item.to}
-            onClick={isMobile ? onClose : undefined}
+            onClick={onClose}
             className="nav-item"
           >
             <ListItemText primary={item.text} />
