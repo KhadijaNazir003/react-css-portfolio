@@ -27,7 +27,7 @@ export default function Contact() {
   };
 
   return (
-    <Box className="right" component="section" sx={{ p: 2 }}>
+    <Box className="right" component="section" style={{marginTop: "80px"}}>
       <Typography variant="h4" className="section-heading" id="contact-form">
         Contact Form
       </Typography>

@@ -26,7 +26,7 @@ export default function Projects() {
   ];
 
   return (
-    <div className="right">
+    <div className="right" style={{marginTop: "80px"}}>
       <div className="section-heading project" id="project">
         Projects
       </div>

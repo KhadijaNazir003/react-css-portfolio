@@ -22,7 +22,7 @@ export default function Education() {
   }, []);
 
   return (
-    <div className="right">
+    <div className="right" style={{marginTop: "80px"}}>
       <Typography variant="h5" className="section-heading" id="education">
         Education
       </Typography>
