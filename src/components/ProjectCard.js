@@ -1,18 +1,42 @@
-import React from "react";
-import { Card, CardContent, Typography } from "@mui/material";
+import { Paper, Typography, Box } from "@mui/material"
 
-export default function ProjectCard({ title, date, children }) {
+const ProjectCard = ({ title, date, location, children }) => {
   return (
-    <Card className="project-card" elevation={3}>
-      <CardContent>
-        <div className="p_head">
-          <Typography component="h3" className="p_name">
-            {title}
-          </Typography>
-          <Typography variant="body2">{date}</Typography>
-        </div>
-        <Typography variant="body2">{children}</Typography>
-      </CardContent>
-    </Card>
-  );
+    <Paper
+      elevation={2}
+      sx={{
+        p: 3,
+        mb: 2,
+        borderRadius: 2,
+        transition: "all 0.3s ease",
+        "&:hover": {
+          elevation: 4,
+          transform: "translateY(-2px)",
+        },
+      }}
+    >
+      <Box sx={{ mb: 2 }}>
+        <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
+          {title}
+        </Typography>
+
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2, flexWrap: "wrap" }}>
+          {date && (
+            <Typography variant="body2" color="text.secondary">
+              {date}
+            </Typography>
+          )}
+          {location && (
+            <Typography variant="body2" color="text.secondary">
+              • {location}
+            </Typography>
+          )}
+        </Box>
+      </Box>
+
+      <Box>{children}</Box>
+    </Paper>
+  )
 }
+
+export default ProjectCard
